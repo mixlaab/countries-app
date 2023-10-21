@@ -12,7 +12,7 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <p>
-            App is now a class component
+            Hi user! App is now a class component
           </p>
         </header>
       </div>
