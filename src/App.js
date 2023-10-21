@@ -14,6 +14,7 @@ class App extends Component {
           <p>
             Hi user! App is now a class component
           </p>
+          <button>Change name</button>
         </header>
       </div>
     );
