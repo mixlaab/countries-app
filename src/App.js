@@ -3,6 +3,13 @@ import './App.css';
 import { Component } from 'react';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      name: "John"
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -12,7 +19,7 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <p>
-            Hi user! App is now a class component
+            Hi {this.state.name}! App is now a class component
           </p>
           <button>Change name</button>
         </header>
