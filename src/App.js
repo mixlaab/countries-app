@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "John"
+      name: "John",
+      country: "England"
     }
   }
 
@@ -19,10 +20,11 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <p>
-            Hi {this.state.name}! App is now a class component
+            Hi {this.state.name}! Greetings to {this.state.country}
           </p>
           <button
             onClick={() => {
+              //Shallow-merge: Only update name, not country
               this.setState({ name: "Paul" }, () => {
                 console.log(this.state);
               });
