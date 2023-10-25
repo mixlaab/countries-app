@@ -6,12 +6,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      name: "John",
-      country: "England"
-    }
+      name: { firstName: 'John', lastName: 'Lennon' },
+      country: 'England',
+    };
   }
 
   render() {
+    const { firstName, lastName } = this.state.name;
+    const { country } = this.state;
+
     return (
       <div className="App">
         <header className="App-header">
@@ -20,13 +23,14 @@ class App extends Component {
             Edit <code>src/App.js</code> and save to reload.
           </p>
           <p>
-            Hi {this.state.name}! Greetings to {this.state.country}
+            Hi {firstName} {lastName}! Greetings to {country}
           </p>
           <button
             onClick={() => {
-              this.setState({ name: "Paul" }, () => {
-                console.log(this.state);
-              });
+              this.setState(
+                { name: { firstName: 'Paul', lastName: 'McCartney' } },
+                () => console.log(this.state)
+              );
             }}
           >
             Change name
