@@ -24,7 +24,6 @@ class App extends Component {
           </p>
           <button
             onClick={() => {
-              //Shallow-merge: Only update name, not country
               this.setState({ name: "Paul" }, () => {
                 console.log(this.state);
               });
