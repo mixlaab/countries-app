@@ -7,13 +7,16 @@ class App extends Component {
     this.state = {
       countries: [
         {
-          name: "Mexico"
+          name: 'Mexico',
+          id: 'ab12cd43'
         },
         {
-          name: "England"
+          name: 'England',
+          id: 'gx324fe6'
         },
         {
-          name: "Uruguay"
+          name: 'Uruguay',
+          id: 'u92p89g2'
         }
       ]
     }
@@ -23,7 +26,7 @@ class App extends Component {
     return (
       <div className="App">
         {this.state.countries.map((country) => {
-          return <h1>{country.name}</h1>
+          return <h1 key={country.id}>{country.name}</h1>
         })}
       </div>
     );
