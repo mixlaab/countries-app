@@ -21,9 +21,16 @@ class App extends Component {
       )
   }
 
+  onSearchChange = (event) => {
+    const searchField = event.target.value.toLowerCase()
+    this.setState(() => ({ searchField }))
+  }
+
   render() {
-    const filteredCountries = this.state.countries.filter((country) => {
-      return country.name.common.toLowerCase().includes(this.state.searchField)
+    const { countries, searchField } = this.state
+    const { onSearchChange } = this
+    const filteredCountries = countries.filter((country) => {
+      return country.name.common.toLowerCase().includes(searchField)
     })
     return (
       <div className="App">
@@ -31,10 +38,7 @@ class App extends Component {
           className='search-box'
           type='search'
           placeholder='Search countries'
-          onChange={(event) => {
-            const searchField = event.target.value.toLowerCase()
-            this.setState(() => ({ searchField }))
-          }}
+          onChange={onSearchChange}
         />
         {filteredCountries.map((country, index) => {
           return <h1 key={country.cca3}>{index + 1}: {country.name.common} ({country.cca3})</h1>
