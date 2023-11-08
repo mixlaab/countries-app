@@ -1,5 +1,6 @@
 import './App.css';
 import { Component } from 'react';
+import CardList from './components/CardList';
 
 class App extends Component {
   constructor() {
@@ -40,6 +41,7 @@ class App extends Component {
           placeholder='Search countries'
           onChange={onSearchChange}
         />
+        <CardList/>
         {filteredCountries.map((country, index) => {
           return <h1 key={country.cca3}>{index + 1}: {country.name.common} ({country.cca3})</h1>
         })}
