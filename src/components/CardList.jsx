@@ -2,9 +2,16 @@ import { Component } from 'react';
 
 class CardList extends Component {
   render() {
+    const { countries } = this.props;
     return (
       <div>
-        <p>This is the CardList Component</p>
+        {countries.map((country, index) => {
+          return (
+            <h1 key={country.cca3}>
+              {index + 1}: {country.name.common} ({country.cca3})
+            </h1>
+          );
+        })}
       </div>
     );
   }

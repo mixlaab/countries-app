@@ -14,12 +14,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://restcountries.com/v3.1/all')
       .then((response) => response.json())
-      .then((countries) =>
-        this.setState(
-          () => ({ countries: countries }),
-          () => console.log(countries)
-        )
-      )
+      .then((countries) => this.setState(() => ({ countries: countries })))
   }
 
   onSearchChange = (event) => {
@@ -41,10 +36,7 @@ class App extends Component {
           placeholder='Search countries'
           onChange={onSearchChange}
         />
-        <CardList/>
-        {filteredCountries.map((country, index) => {
-          return <h1 key={country.cca3}>{index + 1}: {country.name.common} ({country.cca3})</h1>
-        })}
+        <CardList countries={filteredCountries}/>
       </div>
     );
   }
