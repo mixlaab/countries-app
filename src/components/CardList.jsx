@@ -3,7 +3,6 @@ import { Component } from 'react';
 class CardList extends Component {
   render() {
     const { countries } = this.props;
-    console.log('render');
     return (
       <div>
         {countries.map((country, index) => {
