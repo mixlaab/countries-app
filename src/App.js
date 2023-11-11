@@ -1,5 +1,7 @@
-import './App.css';
 import { Component } from 'react';
+import CardList from './components/CardList';
+import SearchBox from './components/SearchBox';
+import AppContainer from './components/AppContainer';
 
 class App extends Component {
   constructor() {
@@ -13,12 +15,7 @@ class App extends Component {
   componentDidMount() {
     fetch('https://restcountries.com/v3.1/all')
       .then((response) => response.json())
-      .then((countries) =>
-        this.setState(
-          () => ({ countries: countries }),
-          () => console.log(countries)
-        )
-      )
+      .then((countries) => this.setState(() => ({ countries: countries })))
   }
 
   onSearchChange = (event) => {
@@ -33,17 +30,14 @@ class App extends Component {
       return country.name.common.toLowerCase().includes(searchField)
     })
     return (
-      <div className="App">
-        <input
+      <AppContainer>
+        <SearchBox
           className='search-box'
-          type='search'
           placeholder='Search countries'
-          onChange={onSearchChange}
+          onChangeHandler={onSearchChange}
         />
-        {filteredCountries.map((country, index) => {
-          return <h1 key={country.cca3}>{index + 1}: {country.name.common} ({country.cca3})</h1>
-        })}
-      </div>
+        <CardList countries={filteredCountries}/>
+      </AppContainer>
     );
   }
 }
