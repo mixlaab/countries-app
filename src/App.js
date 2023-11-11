@@ -1,7 +1,7 @@
-import './App.css';
 import { Component } from 'react';
 import CardList from './components/CardList';
 import SearchBox from './components/SearchBox';
+import AppContainer from './components/AppContainer';
 
 class App extends Component {
   constructor() {
@@ -30,14 +30,14 @@ class App extends Component {
       return country.name.common.toLowerCase().includes(searchField)
     })
     return (
-      <div className="App">
+      <AppContainer>
         <SearchBox
           className='search-box'
           placeholder='Search countries'
           onChangeHandler={onSearchChange}
         />
         <CardList countries={filteredCountries}/>
-      </div>
+      </AppContainer>
     );
   }
 }
